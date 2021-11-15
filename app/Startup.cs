@@ -23,6 +23,11 @@ namespace app
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<ExampleRepository>();
+            services.AddSingleton(
+                new PersistenceConfig
+                {
+                    ConnectionString = Configuration.GetValue<string>("ExampleDb:ConnectionString")
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
