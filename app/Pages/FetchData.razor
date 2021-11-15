@@ -1,0 +1,43 @@
+﻿@page "/fetchdata"
+
+@using app.Models
+@using app.Persistence
+@inject ExampleRepository _exampleRepository
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (_examples == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var example in _examples)
+            {
+                <tr>
+                    <td>@example.Id</td>
+                    <td>@example.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IReadOnlyList<Example> _examples;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _examples = await _exampleRepository.GetExamplesAsync();
+    }
+}
