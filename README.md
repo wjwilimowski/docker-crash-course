@@ -28,9 +28,21 @@ If you haven't build already, build will be automatically executed
 
 `docker-compose up`
 
-## Rebuilding and re-running a particular app
+### Running in the background
+
+`docker-compose up -d`
+
+## Viewing logs
+
+`docker-compose logs -f`
+
+
+## Interacting with particular services
+
+Most docker-compose commands can target a single service
 
 `docker-compose up --build app`
+`docker-compose logs -f app`
 
 ## Shutdown
 
@@ -41,3 +53,6 @@ The `-v` option removes all volumes (files). This means for example files used b
 # Task
 
 Add the example app to the `docker-compose.yml`
+
+- add service
+- add connection string env variable

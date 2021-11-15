@@ -2,10 +2,10 @@ version: "3"
 
 services:
     mssql:
-        build: ./mssql
-        ports:
-            - "1433:1433"
-        environment:
-            SA_PASSWORD: "Sup3radm!n"
-            ACCEPT_EULA: "Y"
+      build: ./mssql
+      ports:
+          - "1433:1433"
+      environment:
+          SA_PASSWORD: "Sup3radm!n"
+          ACCEPT_EULA: "Y"
     
