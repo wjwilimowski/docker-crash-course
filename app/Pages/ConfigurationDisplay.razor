@@ -1,0 +1,32 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration _configuration
+
+<h3>Configuration:</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var configValue in _configValues)
+    {
+        <tr>
+            <td>@configValue.Key</td>
+            <td>@configValue.Value</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    private IReadOnlyList<KeyValuePair<string, string>> _configValues;
+
+    protected override void OnInitialized()
+    {
+        _configValues = _configuration.AsEnumerable().Reverse().ToList();
+        base.OnInitialized();
+    }
+
+}
