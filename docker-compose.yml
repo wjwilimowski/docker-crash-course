@@ -8,4 +8,9 @@ services:
       environment:
           SA_PASSWORD: "Sup3radm!n"
           ACCEPT_EULA: "Y"
-    
+    app:
+      build: ./app
+      ports:
+        - "8080:80"
+      environment:
+        ExampleDb__ConnectionString: "Server=mssql,1433;Database=ExampleDb;User Id=sa;Password=Sup3radm!n"
