@@ -1,0 +1,10 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Examples] (
+	[Id] [int] IDENTITY(1,1) PRIMARY KEY,
+	[Description] [nvarchar](100) NULL
+)
+GO
